@@ -1,0 +1,20 @@
+Pour faire fonctionner la navigation par geste
+dans une application :
+
+Références dll à importer :
+RealSense:
+    -libpxcclr.cs.dll
+    -libpxccpp2c.dll (dans le répertoire de build transpilage C# -> C++)
+    -touchlesscontroller_visualfeedback.dll
+-Microsoft :
+    -Microsoft.Expression.Controls.dll
+    -Microsoft.Expression.Drawing.dll
+    -Microsoft.Expression.Effects.dll
+    -Microsoft.Expression.Interactions.dll
+    -System.windows.Interactivity.dll
+-Autre :
+    -NavigatorUtils.dll
+    -WPFLocalizeExtension.dll
+    -XAMLMarkupExtension.dll
+
+if "$(Platform)" == "x86" ( copy /y "$(RSSDK_DIR)\bin\win32\libpxccpp2c.dll" "$(TargetDir)" ) else ( copy /y "$(RSSDK_DIR)\bin\x64\libpxccpp2c.dll" "$(TargetDir)" )

@@ -1,0 +1,42 @@
+﻿<Window x:Class="SondageInteractifv2.views.windows.QuestionManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SondageInteractifv2.views.windows"
+        mc:Ignorable="d"
+        Title="Sondage Interactif - Gérer questions" Height="300" Width="600"
+        WindowStartupLocation="CenterScreen"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"  ResizeMode="NoResize">
+    <Grid>
+
+        <StackPanel x:Name="UpdatePanel" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Visible" Margin="0 60 0 0" Panel.ZIndex="10" Background="LightGray">
+            <TextBox x:Name="QuestionModif" TextWrapping="Wrap" Width="250" Height="80" VerticalAlignment="Stretch"  Margin="10" VerticalScrollBarVisibility="Auto"/>
+            <Grid Margin="10 0 10 10">
+                <Button x:Name="ModifierBtn" Content="Modifier" HorizontalAlignment="Right"  Width="75" Click="ModifierBtn_Click" />
+                <Button x:Name="CloseBtn" Content="Fermer" HorizontalAlignment="Left"  Width="75" Click="CloseBtn_Click"  />
+            </Grid>
+        </StackPanel>
+
+        <TextBox x:Name="NouvelleQuestion" HorizontalAlignment="Left" Height="23" Margin="154,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="320" MaxLength="120"/>
+        <Label x:Name="QuestionLabel" Content="Ajouter une question :" HorizontalAlignment="Left" Margin="21,13,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Enregistrer" Content="Enregistrer" HorizontalAlignment="Left" Margin="493,18,0,0" VerticalAlignment="Top" Width="75" Click="Enregistrer_Click" />
+        <ListView x:Name="QuestionsListe" HorizontalAlignment="Left" Height="174" Margin="26,48,0,0" VerticalAlignment="Top" Width="496" ItemsSource="{Binding GetQuestionListe}" AllowDrop="True" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="0" Header="Id" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Width="Auto" Header="Position" DisplayMemberBinding="{Binding Position}" />
+                    <GridViewColumn Width="400" Header="Question" DisplayMemberBinding="{Binding LaQuestion}" />
+                    <GridViewColumn Width="Auto" Header="+" DisplayMemberBinding="{Binding Positif}" />
+                    <GridViewColumn Width="Auto" Header="-" DisplayMemberBinding="{Binding Negatif}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="Fermer" Content="Fermer" HorizontalAlignment="Left" Margin="493,227,0,0" VerticalAlignment="Top" Width="75" Click="Fermer_Click"/>
+        <Button x:Name="Supprimer" Content="Supprimer" HorizontalAlignment="Left" Margin="110,227,0,0" VerticalAlignment="Top" Width="75" Click="Supprimer_Click"/>
+        <Button x:Name="Modifier" Content="Modifier" HorizontalAlignment="Left" Margin="26,227,0,0" VerticalAlignment="Top" Width="75" Click="Modifier_Click"/>
+        <Button x:Name="Monter" Content="Up" HorizontalAlignment="Left" Margin="527,48,0,0" VerticalAlignment="Top" Width="41" Height="40" Click="Monter_Click"/>
+        <Button x:Name="Descendre" Content="Dawn" HorizontalAlignment="Left" Margin="527,93,0,0" VerticalAlignment="Top" Width="41" Height="40" Click="Descendre_Click"/>
+        <Button x:Name="Exporter" Content="Exporter" HorizontalAlignment="Left" Margin="413,227,0,0" VerticalAlignment="Top" Width="75" Click="Exporter_Click"/>
+    </Grid>
+</Window>
